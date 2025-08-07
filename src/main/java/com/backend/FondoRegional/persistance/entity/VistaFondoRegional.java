@@ -25,17 +25,18 @@ public class VistaFondoRegional {
     private String homebranch;
     private String location;
     private String itype;
-    private String copynumber;
+    private String copynumber; // puede ser que no lo necesite
 
     private String editionstatement;
-    private String publishercode;
+    private String publishercode; // puede ser que no lo necesite
     private String pages;
     private String size;
     private String isbn;
+    //private String url; puede ser necesario, pero falta agregar datos
 
     private String author;
     private String title;
-    private String notes;
+    //private String notes;
     @Column(name = "abstract")
     private String abstractText;
 
