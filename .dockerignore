@@ -1,0 +1,25 @@
+# Maven
+target/
+!target/*.jar
+
+# Archivos temporales
+*.log
+*.tmp
+*.swp
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+*.class
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Archivos de configuración local
+.env
