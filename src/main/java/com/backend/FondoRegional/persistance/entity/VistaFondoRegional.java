@@ -26,6 +26,7 @@ public class VistaFondoRegional {
     private String location;
     private String itype;
     private String copynumber; // puede ser que no lo necesite
+    private Integer restricted;
 
     private String editionstatement;
     private String publishercode; // puede ser que no lo necesite
@@ -48,4 +49,5 @@ public class VistaFondoRegional {
     private String branchcountry;
     private String branchphone;
     private String branchemail;
+
 }
