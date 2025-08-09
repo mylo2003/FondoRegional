@@ -29,7 +29,7 @@ public class VistaFondoRegional {
     private Integer restricted;
 
     private String editionstatement;
-    private String publishercode; // puede ser que no lo necesite
+    private String publishercode;
     private String pages;
     private String size;
     private String isbn;

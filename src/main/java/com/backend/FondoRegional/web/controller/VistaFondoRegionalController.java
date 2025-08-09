@@ -3,10 +3,7 @@ package com.backend.FondoRegional.web.controller;
 import com.backend.FondoRegional.domain.service.VistaFondoRegionalService;
 import com.backend.FondoRegional.persistance.entity.VistaFondoRegional;
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.data.domain.Pageable;
 
@@ -23,5 +20,13 @@ public class VistaFondoRegionalController {
     @GetMapping
     public Page<VistaFondoRegional> obtenerVista(Pageable pageable) {
         return servicio.obtenerTodos(pageable);
+    }
+
+    @GetMapping("/filtro")
+    public Page<VistaFondoRegional> buscar(
+            @RequestParam(required = false) String search,
+            Pageable pageable
+    ) {
+        return servicio.buscar(search, pageable);
     }
 }

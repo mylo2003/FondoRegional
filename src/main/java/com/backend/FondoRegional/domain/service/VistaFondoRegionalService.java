@@ -16,6 +16,13 @@ public class VistaFondoRegionalService {
         this.repository = repository;
     }
 
+    public Page<VistaFondoRegional> buscar(String search, Pageable pageable) {
+        return repository.findAll(
+                VistaFondoRegionalSpecs.buscarEnTodo(search),
+                pageable
+        );
+    }
+
     public Page<VistaFondoRegional> obtenerTodos(Pageable pageable) {
         return repository.findAll(pageable);
     }
