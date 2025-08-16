@@ -1,4 +1,4 @@
-package com.backend.FondoRegional.persistance.entity;
+package com.backend.FondoRegional.entity.koha;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,11 +33,9 @@ public class VistaFondoRegional {
     private String pages;
     private String size;
     private String isbn;
-    //private String url; puede ser necesario, pero falta agregar datos
 
     private String author;
     private String title;
-    //private String notes;
     @Column(name = "abstract")
     private String abstractText;
 

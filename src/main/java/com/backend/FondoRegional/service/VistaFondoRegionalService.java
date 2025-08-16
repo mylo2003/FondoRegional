@@ -1,7 +1,7 @@
-package com.backend.FondoRegional.domain.service;
+package com.backend.FondoRegional.service;
 
-import com.backend.FondoRegional.persistance.entity.VistaFondoRegional;
-import com.backend.FondoRegional.persistance.jpa.VistaFondoRegionalRepository;
+import com.backend.FondoRegional.entity.koha.VistaFondoRegional;
+import com.backend.FondoRegional.repository.koha.VistaFondoRegionalRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
