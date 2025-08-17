@@ -1,4 +1,4 @@
-package com.backend.FondoRegional.entity.koha;
+package com.backend.FondoRegional.persistance.entity.koha;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -1,6 +1,6 @@
-package com.backend.FondoRegional.service;
+package com.backend.FondoRegional.domain.service;
 
-import com.backend.FondoRegional.entity.koha.VistaFondoRegional;
+import com.backend.FondoRegional.persistance.entity.koha.VistaFondoRegional;
 import org.springframework.data.jpa.domain.Specification;
 
 public class VistaFondoRegionalSpecs {

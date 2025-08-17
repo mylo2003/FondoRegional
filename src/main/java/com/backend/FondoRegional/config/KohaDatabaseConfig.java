@@ -23,7 +23,7 @@ import java.util.Map;
 @EnableJpaRepositories(
         entityManagerFactoryRef = "kohaEntityManagerFactory",
         transactionManagerRef = "kohaTransactionManager",
-        basePackages = {"com.backend.FondoRegional.repository.koha"}
+        basePackages = {"com.backend.FondoRegional.persistance.repository.koha"}
 )
 public class KohaDatabaseConfig {
 
@@ -42,7 +42,7 @@ public class KohaDatabaseConfig {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 
         factoryBean.setDataSource(dataSource);
-        factoryBean.setPackagesToScan("com.backend.FondoRegional.entity.koha");
+        factoryBean.setPackagesToScan("com.backend.FondoRegional.persistance.entity.koha");
         HibernateJpaVendorAdapter vendor = new HibernateJpaVendorAdapter();
         factoryBean.setJpaVendorAdapter(vendor);
 

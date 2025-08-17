@@ -1,7 +1,7 @@
-package com.backend.FondoRegional.service;
+package com.backend.FondoRegional.domain.service;
 
-import com.backend.FondoRegional.entity.fondoregional.Estadisticas;
-import com.backend.FondoRegional.repository.fondoregional.EstadisticasRepository;
+import com.backend.FondoRegional.persistance.entity.fondoregional.Estadisticas;
+import com.backend.FondoRegional.persistance.repository.fondoregional.EstadisticasRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

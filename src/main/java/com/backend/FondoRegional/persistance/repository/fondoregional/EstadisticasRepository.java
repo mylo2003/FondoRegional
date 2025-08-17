@@ -1,6 +1,6 @@
-package com.backend.FondoRegional.repository.fondoregional;
+package com.backend.FondoRegional.persistance.repository.fondoregional;
 
-import com.backend.FondoRegional.entity.fondoregional.Estadisticas;
+import com.backend.FondoRegional.persistance.entity.fondoregional.Estadisticas;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

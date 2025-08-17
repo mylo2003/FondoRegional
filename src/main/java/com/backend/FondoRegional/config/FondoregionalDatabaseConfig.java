@@ -23,7 +23,7 @@ import java.util.Map;
 @EnableJpaRepositories(
         entityManagerFactoryRef = "fondoregionalEntityManagerFactory",
         transactionManagerRef = "fondoregionalTransactionManager",
-        basePackages = {"com.backend.FondoRegional.repository.fondoregional"}
+        basePackages = {"com.backend.FondoRegional.persistance.repository.fondoregional"}
 )
 public class FondoregionalDatabaseConfig {
 
@@ -42,7 +42,7 @@ public class FondoregionalDatabaseConfig {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 
         factoryBean.setDataSource(dataSource);
-        factoryBean.setPackagesToScan("com.backend.FondoRegional.entity.fondoregional");
+        factoryBean.setPackagesToScan("com.backend.FondoRegional.persistance.entity.fondoregional");
         HibernateJpaVendorAdapter vendor = new HibernateJpaVendorAdapter();
         factoryBean.setJpaVendorAdapter(vendor);
 

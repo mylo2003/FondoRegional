@@ -1,8 +1,8 @@
-package com.backend.FondoRegional.service;
+package com.backend.FondoRegional.domain.service;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.backend.FondoRegional.entity.fondoregional.Usuario;
+import com.backend.FondoRegional.persistance.entity.fondoregional.Usuario;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;

@@ -1,9 +1,9 @@
-package com.backend.FondoRegional.service;
+package com.backend.FondoRegional.domain.service;
 
-import com.backend.FondoRegional.dto.RegisterRequest;
-import com.backend.FondoRegional.dto.TokenResponse;
-import com.backend.FondoRegional.entity.fondoregional.Usuario;
-import com.backend.FondoRegional.repository.fondoregional.UsuarioRespository;
+import com.backend.FondoRegional.domain.dto.RegisterRequest;
+import com.backend.FondoRegional.domain.dto.TokenResponse;
+import com.backend.FondoRegional.persistance.entity.fondoregional.Usuario;
+import com.backend.FondoRegional.persistance.repository.fondoregional.UsuarioRespository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

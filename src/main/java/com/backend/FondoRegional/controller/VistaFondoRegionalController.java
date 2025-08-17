@@ -1,7 +1,7 @@
 package com.backend.FondoRegional.controller;
 
-import com.backend.FondoRegional.service.VistaFondoRegionalService;
-import com.backend.FondoRegional.entity.koha.VistaFondoRegional;
+import com.backend.FondoRegional.domain.service.VistaFondoRegionalService;
+import com.backend.FondoRegional.persistance.entity.koha.VistaFondoRegional;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 

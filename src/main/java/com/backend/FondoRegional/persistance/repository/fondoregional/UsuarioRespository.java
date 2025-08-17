@@ -1,6 +1,6 @@
-package com.backend.FondoRegional.repository.fondoregional;
+package com.backend.FondoRegional.persistance.repository.fondoregional;
 
-import com.backend.FondoRegional.entity.fondoregional.Usuario;
+import com.backend.FondoRegional.persistance.entity.fondoregional.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

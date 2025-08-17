@@ -1,4 +1,4 @@
-package com.backend.FondoRegional.entity.fondoregional;
+package com.backend.FondoRegional.persistance.entity.fondoregional;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

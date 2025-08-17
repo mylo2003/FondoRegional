@@ -1,4 +1,4 @@
-package com.backend.FondoRegional.dto;
+package com.backend.FondoRegional.domain.dto;
 
 public record RegisterRequest(
         String email,

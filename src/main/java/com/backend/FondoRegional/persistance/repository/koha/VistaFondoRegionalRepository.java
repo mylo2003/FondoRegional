@@ -1,6 +1,6 @@
-package com.backend.FondoRegional.repository.koha;
+package com.backend.FondoRegional.persistance.repository.koha;
 
-import com.backend.FondoRegional.entity.koha.VistaFondoRegional;
+import com.backend.FondoRegional.persistance.entity.koha.VistaFondoRegional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;

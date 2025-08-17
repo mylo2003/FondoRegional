@@ -1,7 +1,7 @@
 package com.backend.FondoRegional.controller;
 
-import com.backend.FondoRegional.entity.fondoregional.Estadisticas;
-import com.backend.FondoRegional.service.EstadisticasService;
+import com.backend.FondoRegional.persistance.entity.fondoregional.Estadisticas;
+import com.backend.FondoRegional.domain.service.EstadisticasService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
