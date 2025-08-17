@@ -1,0 +1,10 @@
+package com.backend.FondoRegional.dto;
+
+public record RegisterRequest(
+        String email,
+        String password,
+        String name,
+        String lastName,
+        String role
+) {
+}
