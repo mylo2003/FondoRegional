@@ -3,17 +3,23 @@ package com.backend.FondoRegional.domain.service;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.backend.FondoRegional.persistance.entity.fondoregional.Usuario;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
 @Service
 public class JwtService {
-    private String secretKey = "mi_llave_secreta_de_prueba";
-    private Long jwtExpiration = 86400L;
+    @Value("${security.jwt.expiration}")
+    private Long jwtExpiration;
+
     private final Algorithm ALGORITHM;
 
-    public JwtService() {
+    public JwtService(@Value("${security.jwt.secret}") String secretKey) {
+        if (secretKey == null || secretKey.isEmpty()) {
+            throw new IllegalStateException("JWT secret key is missing");
+        }
         this.ALGORITHM = Algorithm.HMAC256(secretKey);
     }
 
@@ -25,10 +31,22 @@ public class JwtService {
         return JWT.create()
                 .withSubject(usuario.getCorreo())
                 .withClaim("role", usuario.getRol())
-                .withClaim("userId", usuario.getId())
                 .withIssuer("fondo-regional")
                 .withIssuedAt(new Date())
                 .withExpiresAt(new Date(System.currentTimeMillis() + jwtExpiration))
                 .sign(ALGORITHM);
+    }
+
+    public String extractUsername(String token) {
+        return JWT.decode(token).getSubject();
+    }
+
+    public boolean isTokenValid(String token, UserDetails userDetails) {
+        final String username = extractUsername(token);
+        return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
+    }
+
+    private boolean isTokenExpired(String token) {
+        return JWT.decode(token).getExpiresAt().before(new Date());
     }
 }

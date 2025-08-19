@@ -1,30 +1,26 @@
 package com.backend.FondoRegional.domain.service;
 
-import com.backend.FondoRegional.domain.dto.RegisterRequest;
+import com.backend.FondoRegional.domain.dto.LoginRequest;
 import com.backend.FondoRegional.domain.dto.TokenResponse;
-import com.backend.FondoRegional.persistance.entity.fondoregional.Usuario;
 import com.backend.FondoRegional.persistance.repository.fondoregional.UsuarioRespository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 public class AuthService {
     private final UsuarioRespository usuarioRespository;
-    private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
+    private final AuthenticationManager authenticationManager;
 
-    public TokenResponse register(RegisterRequest request) {
-        var user = Usuario.builder()
-                .nombre(request.name())
-                .apellido(request.lastName())
-                .correo(request.email())
-                .contrasena(passwordEncoder.encode(request.password()))
-                .rol(request.role())
-                .build();
+    public TokenResponse login(LoginRequest request) {
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(request.email(), request.password())
+        );
 
-        usuarioRespository.save(user);
+        var user = usuarioRespository.findByCorreo(request.email()).orElseThrow();
         var jwtToken = jwtService.generateToken(user);
 
         return new TokenResponse(jwtToken);

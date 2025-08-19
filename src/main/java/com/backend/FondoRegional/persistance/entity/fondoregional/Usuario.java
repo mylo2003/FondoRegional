@@ -18,24 +18,23 @@ import java.time.Instant;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(nullable = false)
     private Integer id;
 
-    @Column(name = "nombre", nullable = false, length = 100)
+    @Column(nullable = false, length = 100)
     private String nombre;
 
-    @Column(name = "apellido", nullable = false, length = 100)
+    @Column(nullable = false, length = 100)
     private String apellido;
 
-    @Column(name = "correo", nullable = false)
+    @Column(nullable = false)
     private String correo;
 
-    @Column(name = "contrasena", nullable = false)
+    @Column(nullable = false)
     private String contrasena;
 
     @ColumnDefault("'usuario'")
-    @Lob
-    @Column(name = "rol")
+    @Column(nullable = false)
     private String rol;
 
     @ColumnDefault("CURRENT_TIMESTAMP")

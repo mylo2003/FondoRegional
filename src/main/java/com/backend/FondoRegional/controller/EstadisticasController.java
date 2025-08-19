@@ -2,19 +2,16 @@ package com.backend.FondoRegional.controller;
 
 import com.backend.FondoRegional.persistance.entity.fondoregional.Estadisticas;
 import com.backend.FondoRegional.domain.service.EstadisticasService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController
-@CrossOrigin("*")
-@RequestMapping("/fondo-regional/estadisticas")
+@RequestMapping("/estadisticas")
+@RequiredArgsConstructor
 public class EstadisticasController {
     private final EstadisticasService servicio;
-
-    public EstadisticasController (EstadisticasService servicio) {
-        this.servicio = servicio;
-    }
 
     @GetMapping()
     public Optional<Estadisticas> obtener() {
