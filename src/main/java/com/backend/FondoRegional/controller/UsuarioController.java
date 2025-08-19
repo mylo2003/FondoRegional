@@ -1,19 +1,24 @@
 package com.backend.FondoRegional.controller;
 
 import com.backend.FondoRegional.domain.dto.RegisterRequest;
+import com.backend.FondoRegional.domain.dto.UsuarioResponse;
 import com.backend.FondoRegional.domain.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/usuarios")
 @RequiredArgsConstructor
 public class UsuarioController {
     private final UsuarioService usuarioService;
+
+    @GetMapping
+    public List<UsuarioResponse> obtenerUsuarios() {
+        return usuarioService.getAll();
+    }
 
     @PostMapping
     public ResponseEntity<String> createUser(@RequestBody final RegisterRequest request) {
