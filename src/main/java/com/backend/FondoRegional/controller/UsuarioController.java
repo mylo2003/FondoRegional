@@ -5,6 +5,7 @@ import com.backend.FondoRegional.domain.dto.UsuarioResponse;
 import com.backend.FondoRegional.domain.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,16 +16,29 @@ import java.util.List;
 public class UsuarioController {
     private final UsuarioService usuarioService;
 
+    @PreAuthorize("hasRole('administrador')")
     @GetMapping
     public List<UsuarioResponse> obtenerUsuarios() {
         return usuarioService.getAll();
     }
 
+    @PreAuthorize("hasRole('administrador')")
     @PostMapping
     public ResponseEntity<String> createUser(@RequestBody final RegisterRequest request) {
         try {
             usuarioService.createUser(request);
             return ResponseEntity.ok("Usuario creado correctamente");
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @PreAuthorize("hasRole('administrador')")
+    @DeleteMapping("/{userId}")
+    public ResponseEntity<?> deleteUser(@PathVariable Integer userId) {
+        try {
+            usuarioService.deleteUser(userId);
+            return  ResponseEntity.ok("Usuario eliminado correctamente");
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

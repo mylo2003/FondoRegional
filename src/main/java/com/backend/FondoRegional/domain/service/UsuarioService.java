@@ -23,6 +23,7 @@ public class UsuarioService {
 
         return usuarios.stream()
                 .map(u -> new UsuarioResponse(
+                        u.getId(),
                         u.getNombre(),
                         u.getApellido(),
                         u.getCorreo(),
@@ -45,5 +46,9 @@ public class UsuarioService {
                 .build();
 
         usuarioRespository.save(user);
+    }
+
+    public void deleteUser(Integer id) {
+        usuarioRespository.deleteById(id);
     }
 }
